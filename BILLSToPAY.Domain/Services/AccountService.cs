@@ -51,18 +51,18 @@ namespace BILLSToPAY.Domain.Services
 
         private (int days, decimal correctedValue, Rule rule) ApplyRules(AccountDto dto)
         {
-            var rules = _ruleRepository.GetActives();
+            var days = dto.PaymentDate.Value.Subtract(dto.DueDate.Value).Days;
 
-            if(rules == null || !rules.Any())
+            if (days <= 0)
             {
                 return (days: 0, correctedValue: dto.OriginalValue.Value, rule: null);
             }
 
-            var days = dto.PaymentDate.Value.Subtract(dto.DueDate.Value).Days;
+            var rules = _ruleRepository.GetActives();
 
-            if(days <= 0)
+            if(rules == null || !rules.Any())
             {
-                return (days: 0, correctedValue: dto.OriginalValue.Value, rule: null);
+                return (days: days, correctedValue: dto.OriginalValue.Value, rule: null);
             }
 
             var rule = GetRule(days, rules);

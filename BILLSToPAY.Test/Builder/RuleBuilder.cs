@@ -47,13 +47,13 @@ namespace BILLSToPAY.Test.Builder
             return this;
         }
 
-        public RuleBuilder WithInterestPerDay(int interestPerDay)
+        public RuleBuilder WithInterestPerDay(decimal interestPerDay)
         {
             _interestPerDay = interestPerDay;
             return this;
         }
 
-        public RuleBuilder WithPenalty(int penalty)
+        public RuleBuilder WithPenalty(decimal penalty)
         {
             _penalty = penalty;
             return this;
