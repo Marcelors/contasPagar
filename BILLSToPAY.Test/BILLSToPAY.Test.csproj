@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
@@ -7,21 +7,28 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="nunit" Version="3.12.0" />
-    <PackageReference Include="NUnit3TestAdapter" Version="3.15.1" />
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.4.0" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.5.0" />
+    <PackageReference Include="xunit" Version="2.4.0" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.4.0" />
+    <PackageReference Include="coverlet.collector" Version="1.2.0" />
+    <PackageReference Include="NSubstitute" Version="4.2.2" />
+    <PackageReference Include="FluentAssertions" Version="5.10.3" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="3.1.9" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Builder\" />
-    <Folder Include="Integration\" />
-    <Folder Include="Units\" />
     <Folder Include="Fake\" />
+    <Folder Include="Integration\" />
+    <Folder Include="Integration\Entity\" />
     <Folder Include="Integration\Repository\" />
     <Folder Include="Integration\ApplicationService\" />
-    <Folder Include="Integration\Entity\" />
-    <Folder Include="Units\Dto\" />
-    <Folder Include="Units\Service\" />
+    <Folder Include="Units\" />
   </ItemGroup>
-
+  <ItemGroup>
+    <ProjectReference Include="..\BILLSToPAY.Infra.Data\BILLSToPAY.Infra.Data.csproj" />
+    <ProjectReference Include="..\BILLSToPAY.Infra.CrossCutting.IoC\BILLSToPAY.Infra.CrossCutting.IoC.csproj" />
+    <ProjectReference Include="..\BILLSToPAY.Domain\BILLSToPAY.Domain.csproj" />
+    <ProjectReference Include="..\BILLSToPAY.ApplicationService\BILLSToPAY.ApplicationService.csproj" />
+  </ItemGroup>
 </Project>
