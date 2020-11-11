@@ -59,6 +59,90 @@ namespace BILLSToPAY.Test.Integration.ApplicationService
         }
 
         [Fact]
+        public void AccountApplicationService_Add_multiple_rules()
+        {
+            var rule = new RuleBuilder().WithDays(3).WithType(RuleType.UpUntil).WithPenalty(2).WithInterestPerDay(0.1m).Builder();
+            var rule_2 = new RuleBuilder().WithDays(3).WithType(RuleType.After).WithPenalty(3).WithInterestPerDay(0.2m).Builder();
+            var rule_3 = new RuleBuilder().WithDays(5).WithType(RuleType.After).WithPenalty(5).WithInterestPerDay(0.3m).Builder();
+
+            _ruleRepository.Add(rule);
+            _ruleRepository.Add(rule_2);
+            _ruleRepository.Add(rule_3);
+            _unitOfWork.Commit();
+
+            var model = new AccountModel
+            {
+                OriginalValue = 10,
+                PaymentDate = DateTime.Now.Date,
+                DueDate = DateTime.Now.AddDays(-2).Date,
+                Name = "test"
+            };
+
+            _accountApplicationService.Add(model);
+
+            var result = _accountRepository.Get(new Filter());
+
+            result.entities.Should().HaveCount(1);
+
+            var entity = result.entities.First();
+            entity.OriginalValue.Should().Be(10);
+            entity.RuleId.Should().Be(rule.Id);
+            entity.CorrectedValue.Should().Be(10.22m);
+            entity.NumberOfDaysLate.Should().Be(2);
+
+            _accountRepository.Remove(entity.Id);
+            _unitOfWork.Commit();
+
+            //Rule_2
+            model = new AccountModel
+            {
+                OriginalValue = 10,
+                PaymentDate = DateTime.Now.Date,
+                DueDate = DateTime.Now.AddDays(-4).Date,
+                Name = "test"
+            };
+
+            _accountApplicationService.Add(model);
+
+            result = _accountRepository.Get(new Filter());
+
+            result.entities.Should().HaveCount(1);
+
+            entity = result.entities.First();
+            entity.OriginalValue.Should().Be(10);
+            entity.RuleId.Should().Be(rule_2.Id);
+            entity.CorrectedValue.Should().Be(10.38m);
+            entity.NumberOfDaysLate.Should().Be(4);
+
+            _accountRepository.Remove(entity.Id);
+            _unitOfWork.Commit();
+
+            //Rule_3
+            model = new AccountModel
+            {
+                OriginalValue = 10,
+                PaymentDate = DateTime.Now.Date,
+                DueDate = DateTime.Now.AddDays(-6).Date,
+                Name = "test"
+            };
+
+            _accountApplicationService.Add(model);
+
+            result = _accountRepository.Get(new Filter());
+
+            result.entities.Should().HaveCount(1);
+
+            entity = result.entities.First();
+            entity.OriginalValue.Should().Be(10);
+            entity.RuleId.Should().Be(rule_3.Id);
+            entity.CorrectedValue.Should().Be(10.68m);
+            entity.NumberOfDaysLate.Should().Be(6);
+
+            _accountRepository.Remove(entity.Id);
+            _unitOfWork.Commit();
+        }
+
+        [Fact]
         public void AccountApplicationService_Add_when_not_exist_rule()
         {
             var model = new AccountModel
