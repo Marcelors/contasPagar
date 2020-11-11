@@ -11,4 +11,10 @@
     <Folder Include="Repositories\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BILLSToPAY.Domain\BILLSToPAY.Domain.csproj" />
+  </ItemGroup>
 </Project>

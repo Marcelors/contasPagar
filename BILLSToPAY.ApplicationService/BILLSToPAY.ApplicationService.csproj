@@ -11,4 +11,7 @@
     <Folder Include="Application\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\BILLSToPAY.Domain\BILLSToPAY.Domain.csproj" />
+  </ItemGroup>
 </Project>

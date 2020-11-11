@@ -1,7 +1,8 @@
-﻿using System;
+﻿using BILLSToPAY.Domain.Entities;
+
 namespace BILLSToPAY.Domain.Interfaces.Repositories
 {
-    public interface IAccountRepository
+    public interface IAccountRepository : IRepositoryBase<Account>
     {
     }
 }

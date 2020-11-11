@@ -98,4 +98,34 @@
 	<resheader name="writer">
 		<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.3500.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
 	</resheader>
+    <data name="NameIsRequired" xml:space="preserve">
+        <value>Nome é obrigatório</value>
+    </data>
+    <data name="MaximumNameSize" xml:space="preserve">
+        <value>tamanho máximo do nome é {0}</value>
+    </data>
+    <data name="DueDateIsRequired" xml:space="preserve">
+        <value>Data de Vencimento é obrigatória</value>
+    </data>
+    <data name="OriginalValueIsRequired" xml:space="preserve">
+        <value>Valor original é obrigatório</value>
+    </data>
+    <data name="PaymentDateIsRequired" xml:space="preserve">
+        <value>Data de pagamento é obrigatória</value>
+    </data>
+    <data name="DaysIsRequired" xml:space="preserve">
+        <value>Quantidade de dia é obrigatório</value>
+    </data>
+    <data name="TypeIsRequired" xml:space="preserve">
+        <value>Tipo é obrigatório</value>
+    </data>
+    <data name="PenaltyIsRequired" xml:space="preserve">
+        <value>Multa é obrigatório</value>
+    </data>
+    <data name="InterestPerDayIsRequired" xml:space="preserve">
+        <value>Juros por dia é obrigatória</value>
+    </data>
+    <data name="RuleNotFound" xml:space="preserve">
+        <value>Regra não encontrada</value>
+    </data>
 </root>

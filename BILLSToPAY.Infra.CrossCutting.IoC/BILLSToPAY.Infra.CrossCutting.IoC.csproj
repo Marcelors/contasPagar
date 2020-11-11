@@ -4,4 +4,9 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\BILLSToPAY.ApplicationService\BILLSToPAY.ApplicationService.csproj" />
+    <ProjectReference Include="..\BILLSToPAY.Domain\BILLSToPAY.Domain.csproj" />
+    <ProjectReference Include="..\BILLSToPAY.Infra.Data\BILLSToPAY.Infra.Data.csproj" />
+  </ItemGroup>
 </Project>

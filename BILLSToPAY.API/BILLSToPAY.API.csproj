@@ -5,4 +5,9 @@
   </PropertyGroup>
 
 
+  <ItemGroup>
+    <ProjectReference Include="..\BILLSToPAY.Infra.CrossCutting.IoC\BILLSToPAY.Infra.CrossCutting.IoC.csproj">
+      <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
+    </ProjectReference>
+  </ItemGroup>
 </Project>

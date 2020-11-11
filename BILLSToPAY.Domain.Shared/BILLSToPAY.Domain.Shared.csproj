@@ -35,6 +35,7 @@
     <Folder Include="Enums\" />
     <Folder Include="Extensions\" />
     <Folder Include="Notification\" />
+    <Folder Include="Parameters\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="MediatR" Version="9.0.0" />
