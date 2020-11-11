@@ -1,13 +1,16 @@
 ﻿using System;
+using BILLSToPAY.Infra.Data.Mappings;
+using Microsoft.EntityFrameworkCore;
+
 namespace BILLSToPAY.Infra.Data.Context
 {
     public class BillToPayContext : DbContext
     {
-        public BookContext()
+        public BillToPayContext()
         {
         }
 
-        public BookContext(DbContextOptions<BookContext> options) : base(options)
+        public BillToPayContext(DbContextOptions<BillToPayContext> options) : base(options)
         {
         }
 
@@ -15,8 +18,8 @@ namespace BILLSToPAY.Infra.Data.Context
         {
             base.OnModelCreating(modelBuilder);
 
-            modelBuilder.ApplyConfiguration(new UserMapping());
-            modelBuilder.ApplyConfiguration(new FavoriteBookMapping());
+            modelBuilder.ApplyConfiguration(new RuleMapping());
+            modelBuilder.ApplyConfiguration(new AccountMapping());
         }
     }
 }

@@ -15,7 +15,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BILLSToPAY.Test", "BILLSToP
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BILLSToPAY.API", "BILLSToPAY.API\BILLSToPAY.API.csproj", "{3C1FA6FD-DECE-4B09-8457-55694E19BEB1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BILLSToPAY.Infra.CrossCutting.IoC", "BILLSToPAY.Infra.CrossCutting.IoC\BILLSToPAY.Infra.CrossCutting.IoC.csproj", "{C3D624A0-0CDD-41C8-8675-FB843DD98962}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BILLSToPAY.Infra.CrossCutting.IoC", "BILLSToPAY.Infra.CrossCutting.IoC\BILLSToPAY.Infra.CrossCutting.IoC.csproj", "{F44993D0-7298-43F0-8B1A-69717D4111E9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -47,10 +47,10 @@ Global
 		{3C1FA6FD-DECE-4B09-8457-55694E19BEB1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3C1FA6FD-DECE-4B09-8457-55694E19BEB1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3C1FA6FD-DECE-4B09-8457-55694E19BEB1}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C3D624A0-0CDD-41C8-8675-FB843DD98962}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C3D624A0-0CDD-41C8-8675-FB843DD98962}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C3D624A0-0CDD-41C8-8675-FB843DD98962}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C3D624A0-0CDD-41C8-8675-FB843DD98962}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F44993D0-7298-43F0-8B1A-69717D4111E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F44993D0-7298-43F0-8B1A-69717D4111E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F44993D0-7298-43F0-8B1A-69717D4111E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F44993D0-7298-43F0-8B1A-69717D4111E9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

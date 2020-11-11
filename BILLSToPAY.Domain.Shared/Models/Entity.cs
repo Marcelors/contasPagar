@@ -6,7 +6,7 @@ namespace BILLSToPAY.Domain.Shared.Models
     {
         public Guid Id { get; protected set; }
 
-        public void NewId()
+        public void WithId()
         {
             Id = Guid.NewGuid();
         }

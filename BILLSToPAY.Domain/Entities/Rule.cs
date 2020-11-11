@@ -5,6 +5,8 @@ namespace BILLSToPAY.Domain.Entities
 {
     public class Rule : Entity
     {
+        protected Rule() { }
+
         public Rule(int days, RuleType type, decimal interestPerDay, decimal penalty)
         {
             Days = days;

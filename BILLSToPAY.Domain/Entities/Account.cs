@@ -5,6 +5,8 @@ namespace BILLSToPAY.Domain.Entities
 {
     public class Account : Entity
     {
+        protected Account() { }
+
         public Account(string name, decimal originalValue, DateTime paymentDate, DateTime dueDate, decimal correctedValue, int numberOfDaysLate, Rule rule)
         {
             Name = name;
