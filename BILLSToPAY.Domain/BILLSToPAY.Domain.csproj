@@ -10,6 +10,11 @@
     <Folder Include="Interfaces\" />
     <Folder Include="Validation\" />
     <Folder Include="Services\" />
+    <Folder Include="Interfaces\Services\" />
+    <Folder Include="Interfaces\Repositories\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\BILLSToPAY.Domain.Shared\BILLSToPAY.Domain.Shared.csproj" />
+  </ItemGroup>
 </Project>

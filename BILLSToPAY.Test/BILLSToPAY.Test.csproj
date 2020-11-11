@@ -16,6 +16,12 @@
     <Folder Include="Builder\" />
     <Folder Include="Integration\" />
     <Folder Include="Units\" />
+    <Folder Include="Fake\" />
+    <Folder Include="Integration\Repository\" />
+    <Folder Include="Integration\ApplicationService\" />
+    <Folder Include="Integration\Entity\" />
+    <Folder Include="Units\Dto\" />
+    <Folder Include="Units\Service\" />
   </ItemGroup>
 
 </Project>
