@@ -11,5 +11,6 @@ namespace BILLSToPAY.ApplicationService.Model
         public decimal? InterestPerDay { get; set; }
         public decimal? Penalty { get; set; }
         public EnumModel<short> TypeModel { get; set; }
+        public bool Active { get; set; }
     }
 }

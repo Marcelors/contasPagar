@@ -1,0 +1,48 @@
+<div class="container-fluid">
+  <div class="card mt-3">
+    <div class="card-header">
+      <div class="float-left">
+        <h4>Regras</h4>
+      </div>
+      <div class="float-right">
+        <button type="button" class="btn btn-secondary" (click)="onRefresh()">Atualizar</button>
+      </div>
+    </div>
+    <div class="card-body">
+      <app-rule-form></app-rule-form>
+
+      <hr />
+
+      <table class="table table-striped" *ngIf="rules$ | async as cursos; else loading">
+        <thead>
+          <tr>
+            <th scope="col">Dias</th>
+            <th scope="col">Tipo</th>
+            <th scope="col">Multa</th>
+            <th scope="col">Juros Por Dia</th>
+            <th scope="col">Status</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let rule of cursos">
+            <td>{{rule.days}}</td>
+            <td>{{rule.typeModel.text}}</td>
+            <td>{{rule.penalty}}</td>
+            <td>{{rule.interestPerDay}}</td>
+            <td>{{rule.active ? 'Ativo' : 'Inativo'}}</td>
+            <td>
+              <button type="button" class="btn btn-danger mr-1" (click)="remove(rule.id)">Deletar</button>
+              <button type="button" class="btn btn-secondary"
+                (click)="!rule.active ? enable(rule.id) : disable(rule.id)">{{rule.active ? 'Desativar' : 'Ativar'}}</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <ng-template #loading>
+        <span>Carregando Regras...</span>
+      </ng-template>
+    </div>
+  </div>
+</div>

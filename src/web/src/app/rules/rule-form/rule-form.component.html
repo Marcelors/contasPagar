@@ -1,0 +1,31 @@
+<form class="needs-validation" novalidate [formGroup]="form">
+  <div class="form-row">
+    <div class="col-md-3 mb-3">
+      <label for="days">Dias</label>
+      <input type="number" class="form-control" id="days" placeholder="Dias" formControlName="days"
+        [ngClass]="{'is-invalid' : sumitted && hasError('days')}" />
+    </div>
+    <div class="col-md-3 mb-3">
+      <label for="type">Tipo</label>
+      <select class="form-control" id="type" formControlName="type"
+        [ngClass]="{'is-invalid' : sumitted && hasError('type')}">
+        <option value="1"> Até</option>
+        <option value="2"> Após</option>
+      </select>
+    </div>
+    <div class="col-md-3 mb-3">
+      <label for="penalty">Multa</label>
+      <input type="number" class="form-control" id="penalty" placeholder="Multa" formControlName="penalty"
+        [ngClass]="{'is-invalid' : sumitted && hasError('penalty')}" />
+    </div>
+    <div class="col-md-3 mb-3">
+      <label for="interestPerDay">Juros por dias</label>
+      <input type="number" class="form-control" id="interestPerDay" placeholder="Juros por dias"
+        [ngClass]="{'is-invalid' : sumitted && hasError('interestPerDay')}" formControlName="interestPerDay" />
+    </div>
+  </div>
+  <div class="form-row">
+    <button type="submit" class="btn btn-primary mr-1" (click)="onSubmit()">Adicionar Regra</button>
+    <button type="button" class="btn btn-danger" (click)="onCancel()">Cancelar</button>
+  </div>
+</form>
