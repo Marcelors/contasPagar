@@ -9,11 +9,11 @@
       </div>
     </div>
     <div class="card-body">
-      <app-rule-form></app-rule-form>
+      <app-rule-form (saveItem)="onRefresh()"></app-rule-form>
 
       <hr />
 
-      <table class="table table-striped" *ngIf="rules$ | async as cursos; else loading">
+      <table class="table table-striped" *ngIf="rules$ | async as rules; else loading">
         <thead>
           <tr>
             <th scope="col">Dias</th>
@@ -25,11 +25,11 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let rule of cursos">
+          <tr *ngFor="let rule of rules">
             <td>{{rule.days}}</td>
             <td>{{rule.typeModel.text}}</td>
-            <td>{{rule.penalty}}</td>
-            <td>{{rule.interestPerDay}}</td>
+            <td>{{rule.penalty.toLocaleString()}}</td>
+            <td>{{rule.interestPerDay.toLocaleString()}}</td>
             <td>{{rule.active ? 'Ativo' : 'Inativo'}}</td>
             <td>
               <button type="button" class="btn btn-danger mr-1" (click)="remove(rule.id)">Deletar</button>

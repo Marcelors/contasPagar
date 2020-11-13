@@ -1,4 +1,3 @@
-import { Interface } from "readline";
 import { RuleModel } from './rule.model';
 
 export interface accountModel {

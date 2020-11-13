@@ -1,26 +1,26 @@
-import { RulesService } from './../../services/rules.service';
+import { AccountService } from './../../services/account.service';
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
-  selector: 'app-rule-form',
-  templateUrl: './rule-form.component.html',
-  styleUrls: ['./rule-form.component.css'],
+  selector: 'app-account-form',
+  templateUrl: './account-form.component.html',
+  styleUrls: ['./account-form.component.css']
 })
-export class RuleFormComponent implements OnInit {
+export class AccountFormComponent implements OnInit {
   form: FormGroup;
   sumitted: boolean = false;
 
   @Output() saveItem = new EventEmitter();
 
-  constructor(private fb: FormBuilder, private service: RulesService) {}
+  constructor(private fb: FormBuilder, private service: AccountService) {}
 
   ngOnInit(): void {
     this.form = this.fb.group({
-      days: [null, [Validators.required]],
-      type: [null, [Validators.required]],
-      interestPerDay: [null, [Validators.required]],
-      penalty: [null, [Validators.required]],
+      name: [null, [Validators.required]],
+      originalValue: [null, [Validators.required]],
+      paymentDate: [null, [Validators.required]],
+      dueDate: [null, [Validators.required]],
     });
   }
 
@@ -34,7 +34,7 @@ export class RuleFormComponent implements OnInit {
       this.service.create(this.form.value).subscribe(
         (success) => {
           this.onCancel();
-          alert('Regra Salva com sucesso!');
+          alert('Conta Salva com sucesso!');
           this.saveItem.emit()
         },
         (error) => {
@@ -48,4 +48,5 @@ export class RuleFormComponent implements OnInit {
     this.sumitted = false;
     this.form.reset();
   }
+
 }

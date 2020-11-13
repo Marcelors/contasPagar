@@ -1,1 +1,48 @@
-<p>account works!</p>
+<div class="container-fluid">
+  <div class="card mt-3">
+    <div class="card-header">
+      <div class="float-left">
+        <h4>Contas a Pagar</h4>
+      </div>
+      <div class="float-right">
+        <button type="button" class="btn btn-secondary" (click)="onRefresh()">Atualizar</button>
+      </div>
+    </div>
+    <div class="card-body">
+      <app-account-form (saveItem)="onRefresh()"></app-account-form>
+
+      <hr />
+
+      <table class="table table-striped" *ngIf="accounts$ | async as accounts; else loading">
+        <thead>
+          <tr>
+            <th scope="col">Nome</th>
+            <th scope="col">Data de Pagamento</th>
+            <th scope="col">Data de Vencimento</th>
+            <th scope="col">Valor original</th>
+            <th scope="col">Valor corrigido</th>
+            <th scope="col">Quantidade de Dias de Atraso</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let account of accounts">
+            <td>{{account.name}}</td>
+            <td>{{formatedDate(account.paymentDate)}}</td>
+            <td>{{formatedDate(account.dueDate)}}</td>
+            <td>{{account.originalValue.toLocaleString()}}</td>
+            <td>{{account.correctedValue.toLocaleString()}}</td>
+            <td>{{account.numberOfDaysLate}}</td>
+            <td>
+              <button type="button" class="btn btn-danger mr-1" (click)="remove(account.id)">Deletar</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <ng-template #loading>
+        <span>Carregando Contas...</span>
+      </ng-template>
+    </div>
+  </div>
+</div>

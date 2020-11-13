@@ -1,0 +1,28 @@
+<form class="needs-validation" novalidate  [formGroup]="form">
+  <div class="form-row">
+    <div class="col-md-3 mb-3">
+      <label for="name">Nome</label>
+      <input type="text" class="form-control" id="name" placeholder="Nome" formControlName="name"
+        [ngClass]="{'is-invalid' : sumitted && hasError('name')}" />
+    </div>
+    <div class="col-md-3 mb-3">
+      <label for="originalValue">Valor Original</label>
+      <input type="number" class="form-control" id="originalValue" placeholder="Valor Original" formControlName="originalValue"
+        [ngClass]="{'is-invalid' : sumitted && hasError('originalValue')}" />
+    </div>
+    <div class="col-md-3 mb-3">
+      <label for="paymentDate">Data do pagamento</label>
+      <input type="date" class="form-control" id="paymentDate" placeholder="Data do pagamento"
+        [ngClass]="{'is-invalid' : sumitted && hasError('paymentDate')}" formControlName="paymentDate" />
+    </div>
+    <div class="col-md-3 mb-3">
+      <label for="dueDate">Data do vencimento</label>
+      <input type="date" class="form-control" id="dueDate" placeholder="Data do vencimento"
+        [ngClass]="{'is-invalid' : sumitted && hasError('dueDate')}" formControlName="dueDate" />
+    </div>
+  </div>
+  <div class="form-row">
+    <button type="submit" class="btn btn-primary mr-1" (click)="onSubmit()">Adicionar Conta</button>
+    <button type="button" class="btn btn-danger" (click)="onCancel()">Cancelar</button>
+  </div>
+</form>
